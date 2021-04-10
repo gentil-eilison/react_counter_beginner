@@ -6,7 +6,20 @@ class Counter extends Component {
     // Use curly brackets if you're going to use JS expression and render values dinamically
     // React.Fragment acts as a div to wrap two adjacent elements. This is because Babbel can't convert elements next to each other
     // this.props.children require to render children elements of an specific instance of the component
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevProps', prevProps)
+        console.log('prevState', prevState)
+        if (prevProps.counter.value !== this.props.counter.value) {
+            // Ajax call and get new data from the server 
+        }
+    }
+
+    componentWillUnmount() {
+        console.log("Counter - Unmount")
+    }
     render() {
+        console.log("Counter - Rendered")
+
         return (
             <div>
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
